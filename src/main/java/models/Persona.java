@@ -11,12 +11,12 @@ package models;
 public class Persona {
 
     private int ID;
-    private String tipoIdentificacion;
+    private int tipoIdentificacion;
     private String numeroIdentificacion;
     private String nombres;
     private String apellidos;
-    private String estadoCivil;
-    private String sexo;
+    private int estadoCivil;
+    private int sexo;
     private String direccion;
     private String telefono;
     private String fechaNacimiento;
@@ -25,7 +25,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos, String estadoCivil, String sexo, String direccion, String telefono, String fechaNacimiento, String tituloEstudio, String universidad, String nivelEstudio) {
+    public Persona(int tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos, int estadoCivil, int sexo, String direccion, String telefono, String fechaNacimiento, String tituloEstudio, String universidad, String nivelEstudio) {
         this.tipoIdentificacion = tipoIdentificacion;
         this.numeroIdentificacion = numeroIdentificacion;
         this.nombres = nombres;
@@ -49,14 +49,14 @@ public class Persona {
     /**
      * @return the tipoIdentificacion
      */
-    public String getTipoIdentificacion() {
+    public int getTipoIdentificacion() {
         return tipoIdentificacion;
     }
 
     /**
      * @param tipoIdentificacion the tipoIdentificacion to set
      */
-    public void setTipoIdentificacion(String tipoIdentificacion) {
+    public void setTipoIdentificacion(int tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
@@ -105,28 +105,28 @@ public class Persona {
     /**
      * @return the estadoCivil
      */
-    public String getEstadoCivil() {
+    public int getEstadoCivil() {
         return estadoCivil;
     }
 
     /**
      * @param estadoCivil the estadoCivil to set
      */
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(int estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
     /**
      * @return the sexo
      */
-    public String getSexo() {
+    public int getSexo() {
         return sexo;
     }
 
     /**
      * @param sexo the sexo to set
      */
-    public void setSexo(String sexo) {
+    public void setSexo(int sexo) {
         this.sexo = sexo;
     }
 

@@ -13,7 +13,7 @@ public class Funcionario extends Persona {
     private String informacionAcademica;
     private String tituloEstudio;
     private String universidad;
-    private String nivelEstudio;
+    private int nivelEstudio;
     
     public Funcionario() {
     }
@@ -42,11 +42,11 @@ public class Funcionario extends Persona {
         this.universidad = universidad;
     }
 
-    public String getNivelEstudio() {
+    public int getNivelEstudio() {
         return nivelEstudio;
     }
 
-    public void setNivelEstudio(String nivelEstudio) {
+    public void setNivelEstudio(int nivelEstudio) {
         this.nivelEstudio = nivelEstudio;
     }
 

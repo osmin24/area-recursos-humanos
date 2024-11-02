@@ -36,16 +36,16 @@ public class FuncionariosDB {
                     funcionario.setID(resultSet.getInt("id"));
                     funcionario.setNombres(resultSet.getString("nombres"));
                     funcionario.setApellidos(resultSet.getString("apellidos"));
-                    funcionario.setTipoIdentificacion(resultSet.getString("tipo_identificacion"));
-                    funcionario.setNumeroIdentificacion(resultSet.getString("numero_identificacion"));
-                    funcionario.setEstadoCivil(resultSet.getString("id_estado_civil"));
-                    funcionario.setSexo(resultSet.getString("id_sexo"));
+                    funcionario.setTipoIdentificacion(resultSet.getInt("tipo_identificacion"));
+                    funcionario.setNumeroIdentificacion(resultSet.getString("numero_identificaion"));
+                    funcionario.setEstadoCivil(resultSet.getInt("id_estado_civil"));
+                    funcionario.setSexo(resultSet.getInt("id_sexo"));
                     funcionario.setDireccion(resultSet.getString("direcction"));
                     funcionario.setTelefono(resultSet.getString("telefono"));
                     funcionario.setFechaNacimiento(resultSet.getString("fecha_nacimiento"));
                     funcionario.setInformacionAcademica(resultSet.getString("informacion_academica"));
                     funcionario.setUniversidad(resultSet.getString("universidad"));
-                    funcionario.setNivelEstudio(resultSet.getString("id_nivel_estudio"));
+                    funcionario.setNivelEstudio(resultSet.getInt("id_nivel_estudio"));
                     funcionario.setTituloEstudio(resultSet.getString("titulo_estudio"));
                     
                     empleados.add(funcionario);
@@ -82,16 +82,16 @@ public class FuncionariosDB {
                     funcionario.setID(resultSet.getInt("id"));
                     funcionario.setNombres(resultSet.getString("nombres"));
                     funcionario.setApellidos(resultSet.getString("apellidos"));
-                    funcionario.setTipoIdentificacion(resultSet.getString("id_tipo_identificacion"));
+                    funcionario.setTipoIdentificacion(resultSet.getInt("id_tipo_identificacion"));
                     funcionario.setNumeroIdentificacion(resultSet.getString("numero_identificaion"));
-                    funcionario.setEstadoCivil(resultSet.getString("id_estado_civil"));
-                    funcionario.setSexo(resultSet.getString("id_sexo"));
+                    funcionario.setEstadoCivil(resultSet.getInt("id_estado_civil"));
+                    funcionario.setSexo(resultSet.getInt("id_sexo"));
                     funcionario.setDireccion(resultSet.getString("direcction"));
                     funcionario.setTelefono(resultSet.getString("telefono"));
                     funcionario.setFechaNacimiento(resultSet.getString("fecha_nacimiento"));
                     funcionario.setInformacionAcademica(resultSet.getString("informacion_academica"));
                     funcionario.setUniversidad(resultSet.getString("universidad"));
-                    funcionario.setNivelEstudio(resultSet.getString("id_nivel_estudio"));
+                    funcionario.setNivelEstudio(resultSet.getInt("id_nivel_estudio"));
                     funcionario.setTituloEstudio(resultSet.getString("titulo_estudio"));
                     
               
@@ -118,19 +118,19 @@ public class FuncionariosDB {
          
             connection = ConfigurationDB.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO public.funcionarios(id_tipo_identificacion, numero_identificaion, nombres, apellidos, id_estado_civil, id_sexo, direcction, telefono, fecha_nacimiento, informacion_academica, universidad, id_nivel_estudio, titulo_estudio)VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-            preparedStatement.setString(2, funcionario.getTipoIdentificacion());
-            preparedStatement.setString(3,funcionario.getNumeroIdentificacion());
-            preparedStatement.setString(4, funcionario.getNombres());
-            preparedStatement.setString(5, funcionario.getApellidos());
-            preparedStatement.setString(6,funcionario.getEstadoCivil());
-            preparedStatement.setString(7,funcionario.getSexo());
-            preparedStatement.setString(8,funcionario.getDireccion());
-            preparedStatement.setString(9,funcionario.getTelefono());
-            preparedStatement.setString(10,funcionario.getFechaNacimiento());
-            preparedStatement.setString(11,funcionario.getInformacionAcademica());
-            preparedStatement.setString(12,funcionario.getUniversidad());
-            preparedStatement.setString(13,funcionario.getNivelEstudio());
-            preparedStatement.setString(14,funcionario.getTituloEstudio());
+            preparedStatement.setInt(1, funcionario.getTipoIdentificacion());
+            preparedStatement.setString(2,funcionario.getNumeroIdentificacion());
+            preparedStatement.setString(3, funcionario.getNombres());
+            preparedStatement.setString(4, funcionario.getApellidos());
+            preparedStatement.setInt(5,funcionario.getEstadoCivil());
+            preparedStatement.setInt(6,funcionario.getSexo());
+            preparedStatement.setString(7,funcionario.getDireccion());
+            preparedStatement.setString(8,funcionario.getTelefono());
+            preparedStatement.setString(9,funcionario.getFechaNacimiento());
+            preparedStatement.setString(10,funcionario.getInformacionAcademica());
+            preparedStatement.setString(11,funcionario.getUniversidad());
+            preparedStatement.setInt(12,funcionario.getNivelEstudio());
+            preparedStatement.setString(13,funcionario.getTituloEstudio());
             preparedStatement.execute();
    
         }finally{
@@ -151,18 +151,18 @@ public class FuncionariosDB {
             connection = ConfigurationDB.getConnection();
             preparedStatement = connection.prepareStatement("UPDATE public.funcionarios SET id_tipo_identificacion=?, numero_identificaion=?, nombres=?, apellidos=?, id_estado_civil=?, id_sexo=?, direcction=?, telefono=?, fecha_nacimiento=?, informacion_academica=?, universidad=?, id_nivel_estudio=?, titulo_estudio=?\n" +
             "WHERE numero_identificacion="+funcionario.getNumeroIdentificacion());
-            preparedStatement.setString(2, funcionario.getTipoIdentificacion());
+            preparedStatement.setInt(2, funcionario.getTipoIdentificacion());
             preparedStatement.setString(3,funcionario.getNumeroIdentificacion());
             preparedStatement.setString(4, funcionario.getNombres());
             preparedStatement.setString(5, funcionario.getApellidos());
-            preparedStatement.setString(6,funcionario.getEstadoCivil());
-            preparedStatement.setString(7,funcionario.getSexo());
+            preparedStatement.setInt(6,funcionario.getEstadoCivil());
+            preparedStatement.setInt(7,funcionario.getSexo());
             preparedStatement.setString(8,funcionario.getDireccion());
             preparedStatement.setString(9,funcionario.getTelefono());
             preparedStatement.setString(10,funcionario.getFechaNacimiento());
             preparedStatement.setString(11,funcionario.getInformacionAcademica());
             preparedStatement.setString(12,funcionario.getUniversidad());
-            preparedStatement.setString(13,funcionario.getNivelEstudio());
+            preparedStatement.setInt(13,funcionario.getNivelEstudio());
             preparedStatement.setString(14,funcionario.getTituloEstudio());
             preparedStatement.execute();
    
@@ -176,15 +176,13 @@ public class FuncionariosDB {
         }
     }
     
-    public Funcionario removeFuncionario(String numeroIdentificacion)throws SQLException {
+    public void removeFuncionario(String numeroIdentificacion)throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        Funcionario funcionario = new Funcionario();
         try{
          
             connection = ConfigurationDB.getConnection();
-            preparedStatement = connection.prepareStatement("delete from funcionarios where numero_identificacion="+numeroIdentificacion);
+            preparedStatement = connection.prepareStatement("delete from funcionarios where numero_identificaion='"+numeroIdentificacion+"'");
             preparedStatement.executeQuery();
                
         }finally{
@@ -194,11 +192,7 @@ public class FuncionariosDB {
             if(preparedStatement != null){
                 preparedStatement.close();
             }
-            if(resultSet != null){
-                resultSet.close();
-            }
         }
-        return funcionario;
     }
     
 }
